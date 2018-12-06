@@ -1,0 +1,25 @@
+From 7519e7e66bb03fde34ee01410572551b945962d5 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Robert-Andr=C3=A9=20Mauchin?= <zebob.m@gmail.com>
+Date: Fri, 23 Mar 2018 18:24:21 +0100
+Subject: [PATCH 1/2] Fix Sprintf error with time values
+
+---
+ gg/scale.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gg/scale.go b/gg/scale.go
+index dca263e..e64b15b 100644
+--- a/gg/scale.go
++++ b/gg/scale.go
+@@ -711,7 +711,7 @@ type timeScale struct {
+ }
+ 
+ func (s *timeScale) String() string {
+-	return fmt.Sprintf("time [%g,%g] => %s", s.min, s.max, s.r)
++	return fmt.Sprintf("time [%v,%v] => %s", s.min, s.max, s.r)
+ }
+ 
+ func (s *timeScale) ExpandDomain(vs table.Slice) {
+-- 
+2.14.3
+

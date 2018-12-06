@@ -1,0 +1,29 @@
+From 7a6b10823e9e442c2b0d46648916ee96a32fdb3f Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Robert-Andr=C3=A9=20Mauchin?= <zebob.m@gmail.com>
+Date: Fri, 23 Mar 2018 18:54:35 +0100
+Subject: [PATCH 2/2] Add missing format in Fatalf
+
+---
+ table/table_test.go | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/table/table_test.go b/table/table_test.go
+index 5b14572..0c32415 100644
+--- a/table/table_test.go
++++ b/table/table_test.go
+@@ -193,10 +193,10 @@ func TestGroupingBuilder(t *testing.T) {
+ 		t.Fatalf("etab+etab should be empty; got %v", v)
+ 	}
+ 	if v := ngb(etab).Add(RootGroupID, tab1).Done(); !equal(tab1, v) {
+-		t.Fatalf("etab+(RootGroupID, tab1) should be %v; got %", tab1, v)
++		t.Fatalf("etab+(RootGroupID, tab1) should be %v; got %v", tab1, v)
+ 	}
+ 	if v := ngb(tab1).Add(RootGroupID, etab).Done(); !equal(tab1, v) {
+-		t.Fatalf("(RootGroupID, tab1)+etab should be %v; got %", tab1, v)
++		t.Fatalf("(RootGroupID, tab1)+etab should be %v; got %v", tab1, v)
+ 	}
+ 
+ 	if v := ngb(tab0).Add(RootGroupID, tab0).Done(); !equal(tab0, v) {
+-- 
+2.14.3
+
